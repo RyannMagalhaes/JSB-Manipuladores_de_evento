@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felinos</title>
+    <style>
+        body{
+            margin: auto;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+
+        }
+        .gatinhos{
+            width: 300px;
+            text-align: center;
+        }
+        img{
+            width: 100px;
+        }
+        input[type="button"]{
+            color: white;
+            background-color: rgb(158, 40, 40);
+            border-radius: 4px;
+            width: 150px;
+            padding: 3px;
+            border: 0;
+        }
+        input[type="text"]{
+            border-radius: 5px;
+            border: groove;
+        }
+    </style>
+
+    <script>
+        nome = localStorage.getItem("text");
+        vet = [];
+        vet = nome.split(" ");
+        var carinhos = 0;
+            
+
+        function oi(){
+            alert(`Oi ${vet[0]}, tudo bem com você?`)
+        }
+
+        function carinho(){
+            carinhos++;
+            document.getElementById("carinhos").innerHTML = `Carinhos: ${carinhos}`;
+        }
+
+        function trocaImg(){
+            document.getElementById("img").src = "Imagens/gato06.gif"
+        }
+
+        function voltaImg(){
+            document.getElementById("img").src = "Imagens/gato03.gif"
+        }
+
+        function cocegas(){
+            document.getElementById("lalala").innerHTML = "Ai, pare de fazer cócegas!"
+        }
+
+        function lalala(){
+            document.getElementById("lalala").innerHTML = "lá lá lá lá lá"
+        }
+
+        function random(){
+            var numeroR = parseInt(Math.random()*100+1);
+            document.getElementById("random").value = `${numeroR}`
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="gatinhos">
+            <img src="Imagens/gato01.gif" alt="" onclick="oi()">
+            <p>Clique em mim!</p>
+        </div>
+        <div class="gatinhos">
+            <img src="Imagens/gato02.gif" alt="" onclick="carinho()">
+            <p>Clique sobre mim várias vezes!</p>
+            <span id="carinhos">Carinhos: </span>
+        </div>
+        <div class="gatinhos">
+            <img src="Imagens/gato03.gif" alt="" id="img" onmouseover="trocaImg()" onmouseout="voltaImg()">
+            <p>Passe o cursor sobre mim!</p>
+        </div>
+        <div class="gatinhos">
+            <img src="Imagens/gato04.gif" alt="" onmouseover="cocegas()" onmouseout="lalala()">
+            <p id="lalala">lá lá lá lá lá</p>
+        </div>
+        <div class="gatinhos">
+            <img src="Imagens/gato05.gif" alt="">
+            <br><br>
+            <input type="button" value="Gerar número da sorte" onclick="random()">
+            <br><br>
+            <input type="text" id="random">
+        </div>
+    </div>
+</body>
+</html>
